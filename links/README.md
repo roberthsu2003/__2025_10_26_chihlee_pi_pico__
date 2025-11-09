@@ -12,3 +12,10 @@ https://www.youtube.com/watch?v=aiEyh41RFiU
 
 ## 2025_11_02_下午
 https://youtube.com/live/EMZL9dDUEdg
+
+---
+
+## 2025_11_09_上午
+https://www.youtube.com/watch?v=x0sI4_AcLWo
+
+---
