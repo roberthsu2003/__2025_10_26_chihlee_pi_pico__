@@ -1,0 +1,10 @@
+---
+alwaysApply: true
+---
+### 這個專案的工作環境是
+- raspberry pi
+- raspberry pico
+
+### 注意事項
+- 如果是pi,請使用標準python
+- 如果是pico,請使用micro python

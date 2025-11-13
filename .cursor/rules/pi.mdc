@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+description: "pi資料夾專用"
+globs: "pi/**"
+---
+pi資料夾是專門在樹莓派的環境
