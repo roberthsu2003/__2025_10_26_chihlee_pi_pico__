@@ -1,7 +1,5 @@
 from machine import Timer
 
-count = 0
-
 def callback2000(n):    
     global count
     count += 1
@@ -16,4 +14,5 @@ def main():
     timer = Timer(period=2000, callback=callback2000)
     
 if __name__ == "__main__":
+    count = 0
     main()
