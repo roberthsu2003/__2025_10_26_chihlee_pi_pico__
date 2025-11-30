@@ -1,0 +1,18 @@
+[Unit]
+Description=MQTT Sensor Monitor Web Application
+After=network.target mosquitto.service
+Wants=mosquitto.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Documents/GitHub/2025_10_26_chihlee_pi_pico/lesson6
+ExecStart=/home/pi/Documents/GitHub/2025_10_26_chihlee_pi_pico/.venv/bin/python /home/pi/Documents/GitHub/2025_10_26_chihlee_pi_pico/lesson6/app_flask.py
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
