@@ -42,4 +42,7 @@ https://youtube.com/live/wLn8al5xD3A
 ## 2025_11_30_早上
 https://www.youtube.com/watch?v=jjfz7rb5TNE
 
+## 2025_11_30_下午
+https://www.youtube.com/watch?v=PIkAuORhUno
+
 ---
