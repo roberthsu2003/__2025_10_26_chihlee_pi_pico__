@@ -5,7 +5,9 @@ description = "這是樹莓派和pico整合的專案"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "flask>=3.1.2",
+    "flask-socketio>=5.5.1",
     "ipykernel>=7.1.0",
+    "openpyxl>=3.1.5",
     "paho-mqtt>=2.1.0",
-    "streamlit>=1.51.0",
 ]
