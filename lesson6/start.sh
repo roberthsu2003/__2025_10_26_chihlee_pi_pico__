@@ -21,7 +21,9 @@ echo "🌐 啟動 Flask 應用程式..."
 echo ""
 echo "📱 請在瀏覽器中開啟以下網址："
 echo "   - http://localhost:8080"
-echo "   - http://172.20.10.3:8080"
+# 獲取本機 IP
+IP=$(hostname -I | awk '{print $1}')
+echo "   - http://$IP:8080 (區域網路)"
 echo ""
 echo "💡 提示："
 echo "   - 按 Ctrl+C 停止應用程式"

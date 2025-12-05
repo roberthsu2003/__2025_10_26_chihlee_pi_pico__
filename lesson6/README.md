@@ -36,11 +36,34 @@ cd /home/pi/Documents/GitHub/2025_10_26_chihlee_pi_pico/lesson6
 uv run python app_flask.py
 ```
 
+### 方式 3：檢查服務狀態（如已安裝服務）
+
+如果您已透過 `install_service.sh` 安裝為系統服務，可以使用以下命令檢查狀態：
+
+```bash
+# 檢查 mqtt-monitor 服務狀態
+sudo systemctl status mqtt-monitor
+```
+
+通用 Linux 服務檢查方式：
+```bash
+# 語法：sudo systemctl status <服務名稱>
+sudo systemctl status mosquitto
+```
+
 ### 開啟網頁
 
 在瀏覽器中訪問：
 - 本地：http://localhost:8080
-- 區域網路：http://172.20.10.3:8080
+- 區域網路：http://<您的IP地址>:8080
+
+**如何查詢您的 IP 地址：**
+
+在終端機輸入以下命令：
+```bash
+hostname -I
+```
+第一個顯示的 IP 地址即為您的區域網路 IP。例如若顯示 `192.168.1.15`，則網址為 `http://192.168.1.15:8080`。
 
 ## 📊 測試數據
 
@@ -136,7 +159,7 @@ from machine import Pin
 # ===== 設定區 =====
 WIFI_SSID = "你的WiFi名稱"
 WIFI_PASSWORD = "你的WiFi密碼"
-MQTT_BROKER = "172.20.10.3"  # 你的 Raspberry Pi IP
+MQTT_BROKER = "172.20.10.3"  # 請改為您的 Raspberry Pi IP (使用 hostname -I 查詢)
 MQTT_TOPIC = "客廳/感測器"
 
 # 硬體設定
@@ -204,7 +227,7 @@ import random
 
 WIFI_SSID = "你的WiFi名稱"
 WIFI_PASSWORD = "你的WiFi密碼"
-MQTT_BROKER = "172.20.10.3"  # Raspberry Pi IP
+MQTT_BROKER = "172.20.10.3"  # 請改為您的 Raspberry Pi IP
 
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)
@@ -274,7 +297,7 @@ mpremote mip install umqtt.simple
    - Flask 應用程式網頁會即時更新顯示
 
 4. **查看結果**：
-   - 打開 http://localhost:8080 或 http://你的Pi的IP:8080
+   - 打開 http://localhost:8080 或 http://<您的Pi IP>:8080
    - 即可看到 Pico 發送的數據
 
 ## 📈 效能比較
