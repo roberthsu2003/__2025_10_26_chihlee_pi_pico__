@@ -287,6 +287,44 @@ mpremote mip install umqtt.simple
 | 即時更新 | 需重新整理 | WebSocket 自動推送 |
 | CPU 佔用 | 高 | 低 |
 
+## 🖥️ 服務管理
+
+如果您已使用 `install_service.sh` 將應用程式安裝為系統服務，可以使用以下命令管理服務。
+
+### 檢查服務狀態
+
+檢查 MQTT 監控服務是否正在運行：
+
+```bash
+sudo systemctl status mqtt-monitor
+```
+
+### 其他常用命令
+
+```bash
+# 啟動服務
+sudo systemctl start mqtt-monitor
+
+# 停止服務
+sudo systemctl stop mqtt-monitor
+
+# 重新啟動服務
+sudo systemctl restart mqtt-monitor
+
+# 查看即時日誌
+sudo journalctl -u mqtt-monitor -f
+```
+
+### Linux 服務狀態檢查通用方式
+
+在 Linux 系統中，可以使用 `systemctl` 命令來檢查任何服務的狀態：
+
+```bash
+# 語法：sudo systemctl status <服務名稱>
+sudo systemctl status mosquitto
+sudo systemctl status ssh
+```
+
 ## 🐛 常見問題
 
 ### Q1: 應用程式無法啟動
