@@ -396,6 +396,7 @@ mosquitto_sub -h localhost -t "客廳/感測器" -v
 - [啟動應用程式.md](啟動應用程式.md) - 快速啟動指南
 - [使用說明.md](使用說明.md) - 完整技術文檔和故障排除
 - [PRD.md](PRD.md) - 產品需求規格
+- [為何要使用Flask-SocketIO.md](為何要使用Flask-SocketIO.md) - Flask-SocketIO 技術說明
 
 ## 📝 數據儲存
 
