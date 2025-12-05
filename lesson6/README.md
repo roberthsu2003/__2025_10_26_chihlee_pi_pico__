@@ -36,6 +36,21 @@ cd /home/pi/Documents/GitHub/2025_10_26_chihlee_pi_pico/lesson6
 uv run python app_flask.py
 ```
 
+### 方式 3：檢查服務狀態（如已安裝服務）
+
+如果您已透過 `install_service.sh` 安裝為系統服務，可以使用以下命令檢查狀態：
+
+```bash
+# 檢查 mqtt-monitor 服務狀態
+sudo systemctl status mqtt-monitor
+```
+
+通用 Linux 服務檢查方式：
+```bash
+# 語法：sudo systemctl status <服務名稱>
+sudo systemctl status mosquitto
+```
+
 ### 開啟網頁
 
 在瀏覽器中訪問：
