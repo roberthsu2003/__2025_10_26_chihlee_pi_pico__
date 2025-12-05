@@ -36,35 +36,6 @@ MQTT_BROKER = "192.168.X.X"  # Raspberry Pi 的 IP 位址
 > hostname -I
 > ```
 
-## 如何在 Pico 內安裝外部套件
-
-在使用外部功能（如 MQTT）時，我們需要安裝對應的套件。在 Pico W 上，主要有兩種安裝方式：
-
-### 方法一：使用 `mip` 自動安裝 (推薦)
-這是 MicroPython 內建的套件管理工具 (類似 Python 的 pip)，可以直接從網路下載套件。
-**注意：Pico W 必須先連上 WiFi 才能使用此功能。**
-
-我們的範例程式碼 (如 `1_led.py`) 已經內建了這段邏輯：
-```python
-import network
-import mip
-
-# 1. 先連上 WiFi (略)
-# 2. 執行安裝
-mip.install("umqtt.simple")
-```
-執行程式時，如果發現缺少套件，程式會自動嘗試下載。
-
-### 方法二：使用 Thonny IDE 介面安裝
-適合初學者，透過圖形介面管理套件。
-
-1. 將 Pico W 連接到電腦，並開啟 Thonny。
-2. 點選上方選單的 **工具 (Tools)** > **管理套件 (Manage packages)**。
-3. 在搜尋框輸入套件名稱 (例如 `umqtt.simple`)。
-4. 點選 **搜尋 (Search)**。
-5. 在搜尋結果中選擇對應的套件，點選 **安裝 (Install)**。
-6. 安裝完成後，套件會被儲存在 Pico 的 `/lib` 資料夾中。
-
 ## 範例說明
 
 ### 範例 1: 開關燈功能 (1_led.py)
@@ -95,7 +66,11 @@ print(wlan.ifconfig())
 
 ### 執行時出現 "ImportError: no module named 'umqtt'"？
 這是因為您的 Pico 尚未安裝 MQTT 函式庫。
-請參考上方的「如何在 Pico 內安裝外部套件」章節，使用 `mip` 或 Thonny 進行安裝。
+我們的範例程式已內建自動安裝功能 (需要網路)。如果是第一次執行，請確保網路暢通，程式會自動執行：
+```python
+import mip
+mip.install("umqtt.simple")
+```
 
 ### 為什麼網頁上沒有數據？
 1. 檢查 `secrets.py` 中的 IP 是否正確。
