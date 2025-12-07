@@ -8,7 +8,7 @@ from umqtt.simple import MQTTClient
 MQTT_BROKER = "172.20.10.3"  # 公開測試用 Broker
 MQTT_PORT = 1883
 CLIENT_ID = "pico_w_publisher"
-TOPIC = "客廳/感測器"
+TOPIC = "living_room/sensor"  # 改用英文主題避免編碼問題
 KEEPALIVE = 60  # 保持連線時間（秒）
 
 # 嘗試連線 WiFi
@@ -34,7 +34,7 @@ while True:
     # 產生亂數資料
     temperature = round(random.uniform(20.0, 35.0), 1)  # 溫度 20~35°C
     humidity = round(random.uniform(40.0, 80.0), 1)     # 濕度 40~80%
-    light_status = random.choice(["開", "關"])          # 燈光狀態
+    light_status = random.choice(["on", "off"])         # 燈光狀態 (英文避免編碼問題)
     
     # 建立 JSON 資料
     data = {
@@ -49,11 +49,11 @@ while True:
     # 嘗試發布，如果失敗則重新連線
     try:
         client.publish(TOPIC, message)
-        print(f"已發布訊息:")
-        print(f"  溫度: {temperature}°C")
-        print(f"  濕度: {humidity}%")
-        print(f"  燈光: {light_status}")
-        print(f"主題: {TOPIC}")
+        print("已發布訊息:")
+        print(f"  temperature: {temperature}")
+        print(f"  humidity: {humidity}")
+        print(f"  light_status: {light_status}")
+        print(f"Topic: {TOPIC}")
     except OSError as e:
         print(f"發布失敗: {e}")
         print("嘗試重新連線...")
