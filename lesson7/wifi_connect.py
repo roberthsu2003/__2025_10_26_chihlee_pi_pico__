@@ -9,8 +9,8 @@ import socket
 # -------------------------------
 # 你可以設定你的 WiFi 資訊
 # -------------------------------
-WIFI_SSID = "你的WiFi名稱"
-WIFI_PASSWORD = "你的WiFi密碼"
+WIFI_SSID = "xxxx"
+WIFI_PASSWORD = "xxx"
 
 # -------------------------------
 # WiFi 連線函式
