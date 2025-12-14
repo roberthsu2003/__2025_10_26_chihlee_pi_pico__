@@ -1,8 +1,10 @@
-from machine import ADC, Pin
+from machine import ADC, Pin,PWM
 from time import sleep
 
 # 初始化 ADC（使用 GPIO 26）
 potentiometer = ADC(Pin(28))
+led = PWM(Pin(15))
+led.freq(1000)  # 設定 PWM 頻率為 1000Hz
 
 while True:
     # 讀取 ADC 值（0 ~ 65535）
@@ -15,5 +17,7 @@ while True:
     percentage = raw_value * 100 / 65535
     
     print(f"原始值: {raw_value}, 電壓: {voltage:.2f}V, 百分比: {percentage:.1f}%")
+    
+    led.duty_u16(raw_value)
     
     sleep(0.5)
